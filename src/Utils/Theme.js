@@ -29,6 +29,8 @@ const themeExtended = extendTheme({
   fontSizes: {
     heading: '30px',
     headingMobile: '26px',
+    subHeading: '24px',
+    subHeadingMobile: '20px',
     body: '16px',
     bodyMobile: '12px',
     button: '16px',

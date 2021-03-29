@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/layout'
+import { Box, Flex, Heading } from '@chakra-ui/layout'
 import { Fade } from '@chakra-ui/transition'
 import React from 'react'
 
@@ -13,6 +13,9 @@ const WrapperAuth = ({ children }) => {
         justifyContent="center"
         alignItems="center"
       >
+        <Heading color="twitter.900" marginY={{ base: 4, sm: 8 }}>
+          Arvis Store
+        </Heading>
         <Box
           width={{ base: '300px', sm: '400px' }}
           maxWidth="400px"
