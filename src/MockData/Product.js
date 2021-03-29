@@ -8,6 +8,7 @@ export const ProductData = [
     disc: {
       status: false,
     },
+    category: ['Gaming', 'Handphone', 'Gadget'],
   },
   {
     name: 'Redmi 9T',
@@ -18,6 +19,11 @@ export const ProductData = [
     disc: {
       status: false,
     },
+    category: ['Xiaomi', 'Handphone', 'Gadget'],
+    description: `NETWORK Technology GSM / HSPA / LTE LAUNCH Announced 2021, January 08 Status Available. Released 2021, January 18
+BODY Dimensions 162.3 x 77.3 x 9.6 mm (6.39 x 3.04 x 0.38 in) Weight 198 g (6.98 oz) Build Glass front (Gorilla Glass 3), plastic frame, plastic back SIM Dual SIM (Nano-SIM, dual stand-by)
+Water-repellent coating DISPLAY Type IPS LCD, 400 nits (typ) Size 6.53 inches, 104.7 cm2 (~83.4% screen-to-body ratio) Resolution 1080 x 2340 pixels, 19.5:9 ratio (~395 ppi density)
+`,
   },
   {
     name: 'Samsung Monitor',
@@ -28,6 +34,7 @@ export const ProductData = [
     disc: {
       status: false,
     },
+    category: ['Samsung', 'Monitor'],
   },
   {
     name: 'Sony Headset WH-1000xm4',
@@ -38,6 +45,7 @@ export const ProductData = [
     disc: {
       status: false,
     },
+    category: ['Headset', 'Premium'],
   },
   {
     name: 'Keychron K2',
@@ -48,6 +56,42 @@ export const ProductData = [
     disc: {
       status: false,
     },
+    category: ['Mechanical', 'Keyboard'],
+    description: `Red Switch -> Linear, Quiet, Office/ Gaming
+Blue Switch -> Clicky, Typist
+Brown switch -> Tactile, Gentle, Gaming/ Office
+
+What’s new on the K2 (Hot-swappable) compare with the K2?
+
+Added hot-swappable function.
+Double-shot keycaps
+Different keycap color way
+
+SPECIFICATION
+
+Number of Keys: 84 keys
+Switches: Gateron blue/red/brown switches
+Number of Multimedia Keys: 12
+Main Body Material (Plastic version): ABS
+Main Body Material (Aluminum version): Aluminum frame and ABS bottom frame
+Keycap Material: Double-shot ABS
+Keycap Profile: OEM
+Layout: ANSI
+
+CONNECTIVITY AND POWER
+
+Backlit Types: 18
+Backlit: Adjustable 4-level RGB backlit
+System: Windows/Android/Mac/iOS
+Battery: 4000mAh Rechargeable li-polymer battery
+BT Working Time (Backlit off): Up to 240 hours (Lab test result may vary by actual use)
+BT Working Time (Single LED): Up to 68 hours (Lab test result may vary by actual use)
+BT Working Time (RGB): Up to 72 hours (Lab test result may vary by actual use)
+Charging Time: Around 3 hours
+Connection: Bluetooth and Type-C cable
+Bluetooth version: 5.1
+Bluetooth Device Name: Keychron K2
+Compatible System: macOS/Windows`,
   },
   {
     name: 'Eggel Terra XL',
@@ -58,5 +102,6 @@ export const ProductData = [
     disc: {
       status: false,
     },
+    category: ['Audio', 'Speaker'],
   },
 ]
