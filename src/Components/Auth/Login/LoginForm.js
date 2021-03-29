@@ -5,13 +5,34 @@ import {
   FormErrorMessage,
 } from '@chakra-ui/form-control'
 import { Stack } from '@chakra-ui/layout'
-import React from 'react'
+import { useAuthentication } from 'Context/AuthenticationContext'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import { fontSizes } from 'Token/Token'
+import ErrorHandler from 'Utils/ErrorHandler'
 import InputAuth from '../InputAuth'
 
 const LoginForm = ({ register, handleSubmit, errors }) => {
-  const onFormSubmit = (data) => {
-    console.log(data)
+  const [isLoading, setIsLoading] = useState(false)
+  const { login } = useAuthentication()
+  const history = useHistory()
+
+  const onFormSubmit = async (data) => {
+    const loginData = {
+      email: data?.email,
+      password: data?.password,
+    }
+
+    try {
+      setIsLoading(true)
+      await login(loginData)
+      history.push('/')
+    } catch (err) {
+      console.log(err)
+      ErrorHandler(err?.code)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -23,6 +44,7 @@ const LoginForm = ({ register, handleSubmit, errors }) => {
             placeholder="Type your email..."
             ref={register({ required: true })}
             name="email"
+            disabled={isLoading}
           />
           {errors.email && (
             <FormErrorMessage fontSize={fontSizes.Body}>
@@ -37,6 +59,7 @@ const LoginForm = ({ register, handleSubmit, errors }) => {
             type="password"
             ref={register({ required: true })}
             name="password"
+            disabled={isLoading}
           />
           {errors.password && (
             <FormErrorMessage fontSize={fontSizes.Body}>
@@ -52,6 +75,7 @@ const LoginForm = ({ register, handleSubmit, errors }) => {
         type="submit"
         boxShadow="md"
         fontSize={fontSizes.Button}
+        disabled={isLoading}
       >
         Log In
       </Button>

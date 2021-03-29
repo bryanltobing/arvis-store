@@ -15,6 +15,7 @@ const WrapperAuth = ({ children }) => {
       >
         <Box
           width={{ base: '300px', sm: '400px' }}
+          maxWidth="400px"
           height="auto"
           padding={{ base: 4, sm: 8 }}
           boxShadow="md"

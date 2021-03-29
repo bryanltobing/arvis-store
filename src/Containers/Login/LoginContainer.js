@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/button'
-import { Center, Divider, Heading, Stack, Text } from '@chakra-ui/layout'
+import { Center, Divider, Flex, Heading, Stack, Text } from '@chakra-ui/layout'
 import LoginForm from 'Components/Auth/Login/LoginForm'
 import WrapperAuth from 'Components/Auth/WrapperAuth'
 import React from 'react'
@@ -38,13 +38,26 @@ const LoginContainer = () => {
 
       <Divider marginY={4} />
 
-      <Link to="/register">
-        <Center>
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        textAlign="center"
+        color="twitter.700"
+      >
+        <Link to="/reset-password">
+          <Text colorScheme="twitter" _hover={{ textDecoration: 'underline' }}>
+            Can't Login?
+          </Text>
+        </Link>
+
+        <Divider orientation="vertical" marginX={2} colorScheme="twitter" />
+
+        <Link to="/register">
           <Text colorScheme="twitter" _hover={{ textDecoration: 'underline' }}>
             Sign up for an account
           </Text>
-        </Center>
-      </Link>
+        </Link>
+      </Flex>
     </WrapperAuth>
   )
 }

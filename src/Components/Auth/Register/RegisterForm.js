@@ -10,16 +10,35 @@ import React, { useState } from 'react'
 import { fontSizes } from 'Token/Token'
 import InputAuth from '../InputAuth'
 import validator from 'validator'
+import { useAuthentication } from 'Context/AuthenticationContext'
+import { useHistory } from 'react-router'
+import ErrorHandler from 'Utils/ErrorHandler'
 
 const RegisterForm = ({ register, handleSubmit, errors, watch }) => {
   const [showPassword, setShowPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const { register: signUp } = useAuthentication()
+  const history = useHistory()
 
   const handleShowPassword = () => {
     setShowPassword((showPasswordOld) => !showPasswordOld)
   }
 
-  const onFormSubmit = (data) => {
-    console.log(data)
+  const onFormSubmit = async (data) => {
+    const signUpData = {
+      email: data?.email,
+      password: data?.password,
+    }
+    try {
+      setIsLoading(true)
+      await signUp(signUpData)
+      history.push('/')
+    } catch (err) {
+      console.log(err)
+      ErrorHandler(err?.code, err?.message)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const emailValidator = (data) => {
@@ -49,6 +68,7 @@ const RegisterForm = ({ register, handleSubmit, errors, watch }) => {
             borderRadius="none"
             ref={register({ required: true, validate: emailValidator })}
             name="email"
+            disabled={isLoading}
           />
           {errors.email && (
             <FormErrorMessage fontSize={fontSizes.Body}>
@@ -69,6 +89,7 @@ const RegisterForm = ({ register, handleSubmit, errors, watch }) => {
               borderRadius="none"
               name="password"
               ref={register({ required: true })}
+              disabled={isLoading}
             />
             <InputRightElement width="4.5rem">
               <Button h="1.75rem" size="sm" onClick={handleShowPassword}>
@@ -94,6 +115,7 @@ const RegisterForm = ({ register, handleSubmit, errors, watch }) => {
                 required: true,
                 validate: confirmPasswordValidator,
               })}
+              disabled={isLoading}
             />
             <InputRightElement width="4.5rem">
               <Button h="1.75rem" size="sm" onClick={handleShowPassword}>
@@ -115,6 +137,7 @@ const RegisterForm = ({ register, handleSubmit, errors, watch }) => {
         colorScheme="twitter"
         boxShadow="md"
         fontSize={fontSizes.Button}
+        disabled={isLoading}
       >
         Register
       </Button>

@@ -40,7 +40,11 @@ const RegisterContainer = () => {
 
       <Link to="/login">
         <Center>
-          <Text colorScheme="twitter" _hover={{ textDecoration: 'underline' }}>
+          <Text
+            colorScheme="twitter"
+            _hover={{ textDecoration: 'underline' }}
+            color="twitter.700"
+          >
             Already have an account? Log In
           </Text>
         </Center>
