@@ -12,10 +12,8 @@ const CartModalItem = ({ productId, setTotalPrice }) => {
 
     if (product) {
       setProduct(product)
-      setTotalPrice(
-        (oldTotalPrice) => Number(oldTotalPrice) + Number(product?.price)
-      )
     }
+    setTotalPrice((old) => Number(old) + Number(product?.price))
     // eslint-disable-next-line
   }, [productId])
 

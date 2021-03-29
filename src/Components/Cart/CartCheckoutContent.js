@@ -21,6 +21,7 @@ const CartCheckoutContent = ({
   isCheckingOut,
 }) => {
   const { cart } = useCart()
+
   return (
     <ModalContent borderRadius="none" margin={4}>
       <ModalHeader>

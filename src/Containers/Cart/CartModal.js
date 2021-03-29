@@ -18,13 +18,20 @@ const CartModal = ({ isOpen, onClose }) => {
       localStorage.removeItem('cart')
       setCart([])
       setItemPurchased(true)
+      setTotalPrice(0)
     }, 3000)
+  }
+
+  const handleCloseModal = () => {
+    onClose()
+
+    setTotalPrice(0)
   }
 
   return (
     <>
       <Modal
-        onClose={onClose}
+        onClose={handleCloseModal}
         finalFocusRef={btnRef}
         isOpen={isOpen}
         scrollBehavior={'outside'}
@@ -37,7 +44,7 @@ const CartModal = ({ isOpen, onClose }) => {
             setTotalPrice={setTotalPrice}
             handleCheckout={handleCheckout}
             isCheckingOut={isCheckingOut}
-            onClose={onClose}
+            onClose={handleCloseModal}
           />
         ) : (
           <CartItemPurchasedContent
