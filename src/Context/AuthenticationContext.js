@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { auth } from 'firebaseConfig'
+import { auth, facebookProvider } from 'firebaseConfig'
 
 const AuthenticationContext = createContext()
 
@@ -15,6 +15,8 @@ const AuthenticationProvider = ({ children }) => {
 
   const logout = () => auth.signOut()
 
+  const authWithFacebook = () => auth.signInWithPopup(facebookProvider)
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user)
@@ -26,7 +28,7 @@ const AuthenticationProvider = ({ children }) => {
 
   return (
     <AuthenticationContext.Provider
-      value={{ currentUser, register, login, logout }}
+      value={{ currentUser, authWithFacebook, register, login, logout }}
     >
       {!loading && children}
     </AuthenticationContext.Provider>

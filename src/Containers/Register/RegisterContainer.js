@@ -1,11 +1,11 @@
 import React from 'react'
-import { Heading, Center, Stack, Button, Text, Divider } from '@chakra-ui/react'
+import { Heading, Center, Stack, Text, Divider } from '@chakra-ui/react'
 import RegisterForm from 'Components/Auth/Register/RegisterForm'
-import { FaFacebookSquare } from 'react-icons/fa'
 import { fontSizes } from 'Token/Token'
 import { useForm } from 'react-hook-form'
 import WrapperAuth from 'Components/Auth/WrapperAuth'
 import { Link } from 'react-router-dom'
+import ContinueWithFacebookButton from 'Components/Auth/ContinueWithFacebookButton'
 
 const RegisterContainer = () => {
   const { register, handleSubmit, errors, watch } = useForm()
@@ -26,14 +26,7 @@ const RegisterContainer = () => {
         <Center>
           <Text>Or</Text>
         </Center>
-        <Button
-          boxShadow="md"
-          colorScheme="facebook"
-          leftIcon={<FaFacebookSquare />}
-          fontSize={fontSizes.Button}
-        >
-          Continue with Facebook
-        </Button>
+        <ContinueWithFacebookButton />
       </Stack>
 
       <Divider marginY={4} />

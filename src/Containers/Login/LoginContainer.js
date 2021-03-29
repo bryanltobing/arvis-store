@@ -1,15 +1,15 @@
-import { Button } from '@chakra-ui/button'
 import { Center, Divider, Flex, Heading, Stack, Text } from '@chakra-ui/layout'
+import ContinueWithFacebookButton from 'Components/Auth/ContinueWithFacebookButton'
 import LoginForm from 'Components/Auth/Login/LoginForm'
 import WrapperAuth from 'Components/Auth/WrapperAuth'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { FaFacebookSquare } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { fontSizes } from 'Token/Token'
 
 const LoginContainer = () => {
   const { register, handleSubmit, errors } = useForm()
+
   return (
     <WrapperAuth>
       <Center>
@@ -26,14 +26,7 @@ const LoginContainer = () => {
         <Center>
           <Text>Or</Text>
         </Center>
-        <Button
-          boxShadow="md"
-          colorScheme="facebook"
-          leftIcon={<FaFacebookSquare />}
-          fontSize={fontSizes.Button}
-        >
-          Continue with Facebook
-        </Button>
+        <ContinueWithFacebookButton />
       </Stack>
 
       <Divider marginY={4} />
