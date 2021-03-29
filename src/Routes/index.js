@@ -14,6 +14,7 @@ const Routes = () => {
     <Switch>
       <VerifiedRoute path="/" exact component={HomePageLoad} />
       <VerifiedRoute path="/product/:id" exact component={ProductPageLoad} />
+
       <PublicRoute path="/register" component={RegisterPageLoad} />
       <PublicRoute path="/login" component={LoginPageLoad} />
     </Switch>

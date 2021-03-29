@@ -1,5 +1,6 @@
-import { Box, Flex, Heading } from '@chakra-ui/layout'
+import { Box, Stack, Flex, Heading } from '@chakra-ui/layout'
 import AvatarInfo from 'Components/Navigation/TopBar/AvatarInfo'
+import CartInfo from 'Components/Navigation/TopBar/CartInfo'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { fontSizes } from 'Token/Token'
@@ -22,7 +23,10 @@ const TopBar = () => {
             Arvis Store
           </Heading>
         </Link>
-        <AvatarInfo />
+        <Stack direction="row" spacing={{ base: 2, sm: 4 }}>
+          <CartInfo />
+          <AvatarInfo />
+        </Stack>
       </Flex>
     </Box>
   )
