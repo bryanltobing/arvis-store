@@ -1,7 +1,8 @@
 import React from 'react'
-import { Switch, Route } from 'react-router'
+import { Switch } from 'react-router'
 import loadable from '@loadable/component'
 import VerifiedRoute from './VerifiedRoute'
+import PublicRoute from './PublicRoute'
 
 const RegisterPageLoad = loadable(() => import('Pages/Register/RegisterPages'))
 const LoginPageLoad = loadable(() => import('Pages/Login/LoginPages'))
@@ -11,8 +12,8 @@ const Routes = () => {
   return (
     <Switch>
       <VerifiedRoute path="/" exact component={HomePageLoad} />
-      <Route path="/register" component={RegisterPageLoad} />
-      <Route path="/login" component={LoginPageLoad} />
+      <PublicRoute path="/register" component={RegisterPageLoad} />
+      <PublicRoute path="/login" component={LoginPageLoad} />
     </Switch>
   )
 }

@@ -1,5 +1,4 @@
 import { Center, Divider, Flex, Heading, Stack, Text } from '@chakra-ui/layout'
-import ContinueWithFacebookButton from 'Components/Auth/ContinueWithFacebookButton'
 import LoginForm from 'Components/Auth/Login/LoginForm'
 import WrapperAuth from 'Components/Auth/WrapperAuth'
 import React from 'react'
@@ -22,11 +21,6 @@ const LoginContainer = () => {
           handleSubmit={handleSubmit}
           errors={errors}
         />
-
-        <Center>
-          <Text>Or</Text>
-        </Center>
-        <ContinueWithFacebookButton />
       </Stack>
 
       <Divider marginY={4} />

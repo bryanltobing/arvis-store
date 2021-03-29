@@ -5,7 +5,6 @@ import { fontSizes } from 'Token/Token'
 import { useForm } from 'react-hook-form'
 import WrapperAuth from 'Components/Auth/WrapperAuth'
 import { Link } from 'react-router-dom'
-import ContinueWithFacebookButton from 'Components/Auth/ContinueWithFacebookButton'
 
 const RegisterContainer = () => {
   const { register, handleSubmit, errors, watch } = useForm()
@@ -23,10 +22,6 @@ const RegisterContainer = () => {
           errors={errors}
           watch={watch}
         />
-        <Center>
-          <Text>Or</Text>
-        </Center>
-        <ContinueWithFacebookButton />
       </Stack>
 
       <Divider marginY={4} />

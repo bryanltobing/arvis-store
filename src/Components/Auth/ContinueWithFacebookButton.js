@@ -5,15 +5,19 @@ import { FaFacebookSquare } from 'react-icons/fa'
 import { useHistory } from 'react-router'
 import { fontSizes } from 'Token/Token'
 
-const ContinueWithFacebookButton = () => {
+const ContinueWithFacebookButton = ({ setIsLoading }) => {
   const { authWithFacebook } = useAuthentication()
   const history = useHistory()
 
   const handleFacebookLogin = async () => {
     try {
+      setIsLoading(true)
       await authWithFacebook()
       history.push('/')
-    } catch (err) {}
+    } catch (err) {
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
